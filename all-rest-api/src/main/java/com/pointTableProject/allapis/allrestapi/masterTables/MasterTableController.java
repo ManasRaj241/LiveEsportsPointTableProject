@@ -66,6 +66,8 @@ public class MasterTableController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	
+	
 	@RequestMapping(value="/players/{teamId}",method=RequestMethod.GET)
 	public List<Players> getAllPlayers(@PathVariable int teamId){
 		return playersService.getAllPlayersById(teamId);
