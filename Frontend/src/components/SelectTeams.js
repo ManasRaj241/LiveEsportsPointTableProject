@@ -6,8 +6,8 @@ const SelectTeams = () => {
   return (
     <div>
       <h1>SelectTeams</h1>
-      <h1>MaxTeams:{params.maxTeams}</h1>
-      <h1>MaxGroups:{params.maxGroups}</h1>
+      <h3>MaxTeams:{params.maxTeams}</h3>
+      <h3>MaxGroups:{params.maxGroups}</h3>
     </div>
   );
 };
