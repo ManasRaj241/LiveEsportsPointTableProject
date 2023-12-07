@@ -9,6 +9,8 @@ public interface TournamentRepository extends JpaRepository<Tournament, Integer>
 	List<Tournament> findAllByName(String tournamentName);
 
 	Tournament findByName(String tournamentName);
+	
+	Tournament findById(int id);
 
 	void deleteByName(String tournamentName);
 

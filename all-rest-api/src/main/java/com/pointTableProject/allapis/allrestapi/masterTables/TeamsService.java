@@ -21,7 +21,7 @@ public class TeamsService {
     public List<Teams> allTeams = new ArrayList<Teams>();
 
     public List<Teams> getAllTeam() {
-    	List<Teams> allTeams = teamsRepository.findAll();
+    	allTeams = teamsRepository.findAll();
         return allTeams;
     }
     

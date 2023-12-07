@@ -96,9 +96,7 @@ const Home = () => {
                   </button>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <Link
-                    to={`/SelectTeams/${tournament.maxTeams}/${tournament.maxGroups}`}
-                  >
+                  <Link to={`/SelectTeams/${tournament.id}`}>
                     <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                       View
                     </button>

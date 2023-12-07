@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Tournament from "./src/components/Tournament";
-import Home from "./src/components/Home";
+import Tournament from "../src/components/Tournament";
+import Home from "../src/components/Home";
 import "tailwindcss/tailwind.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import SelectTeams from "./src/components/SelectTeams";
+import SelectTeams from "../src/components/SelectTeams";
 
 const AppLayout = () => {
   return (
@@ -24,7 +24,7 @@ const appRouter = createBrowserRouter([
     element: <Tournament />,
   },
   {
-    path: "/SelectTeams/:maxTeams/:maxGroups",
+    path: "/SelectTeams/:tournamentId",
     element: <SelectTeams />,
   },
 ]);

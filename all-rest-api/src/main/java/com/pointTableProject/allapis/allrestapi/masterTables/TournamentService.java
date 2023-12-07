@@ -2,7 +2,6 @@ package com.pointTableProject.allapis.allrestapi.masterTables;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,10 +51,16 @@ public class TournamentService {
 	}
 	
 	public void deleteTournamentById(int id) {
-		Optional<Tournament> existingTournament = tournamentRepository.findById(id);
+		Tournament existingTournament = tournamentRepository.findById(id);
 		if (existingTournament != null) {
 			tournamentRepository.deleteById(id);
         }	
+	}
+
+	public Tournament getTournamentByTournamentId(int tournamentId) {
+		Tournament tournament = tournamentRepository.findById(tournamentId);
+		if(tournament == null) return null;
+		return tournament;
 	}
 
 	

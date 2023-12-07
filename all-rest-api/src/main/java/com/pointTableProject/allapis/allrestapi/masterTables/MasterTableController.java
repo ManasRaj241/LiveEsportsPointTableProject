@@ -66,8 +66,6 @@ public class MasterTableController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	
-	
 	@RequestMapping(value="/players/{teamId}",method=RequestMethod.GET)
 	public List<Players> getAllPlayers(@PathVariable int teamId){
 		return playersService.getAllPlayersById(teamId);
@@ -97,9 +95,9 @@ public class MasterTableController {
         return new ResponseEntity<>(tournaments, HttpStatus.OK);
     }
 	
-	@RequestMapping(value="/tournament/{tournamentName}",method=RequestMethod.GET)
-    public ResponseEntity<List<Tournament>> getTournamentById(@PathVariable String tournamentName) {
-		List<Tournament> tournament = tournamentService.getTournamentByTournamentName(tournamentName);
+	@RequestMapping(value="/tournament/{tournamentId}",method=RequestMethod.GET)
+    public ResponseEntity<Tournament> getTournamentById(@PathVariable int tournamentId) {
+		Tournament tournament = tournamentService.getTournamentByTournamentId(tournamentId);
         return new ResponseEntity<>(tournament, HttpStatus.OK);
     }
 
