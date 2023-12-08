@@ -66,8 +66,10 @@ const SelectTeams = () => {
         <div className="mb-4">
           <div className="text-lg font-semibold mb-2">
             <div>
-              <h1>Number Of Selected teams : </h1>
-              {noOfSelectedTeams}
+              <h1>
+                Number Of Selected teams :{noOfSelectedTeams} /{" "}
+                {tournamentData.maxTeams}
+              </h1>
             </div>
             Sl number: {currentTeamIndex + 1}
           </div>
