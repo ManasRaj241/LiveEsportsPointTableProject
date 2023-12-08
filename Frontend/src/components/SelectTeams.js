@@ -43,7 +43,6 @@ const SelectTeams = () => {
       .then(() => {
         setCurrentTeamIndex((prevIndex) => prevIndex + 1);
         setSelectedGroupName("");
-        setNoOfSelectedTeams((prevNo) => prevNo + 1);
       })
       .catch((error) => console.error("Error saving data:", error));
   };
@@ -62,10 +61,14 @@ const SelectTeams = () => {
   const currentTeam = teamsData[currentTeamIndex];
 
   return (
-    <div className="container mx-auto mt-8 p-4 bg-gray-100">
+    <div className="container mx-auto mt-8 p-4 bg-orange-100 m-auto">
       <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
         <div className="mb-4">
           <div className="text-lg font-semibold mb-2">
+            <div>
+              <h1>Number Of Selected teams : </h1>
+              {noOfSelectedTeams}
+            </div>
             Sl number: {currentTeamIndex + 1}
           </div>
           <div className="mb-2">
@@ -85,6 +88,9 @@ const SelectTeams = () => {
               onChange={(e) => setSelectedGroupName(e.target.value)}
               className="ml-2 p-2 border border-gray-300 rounded-md"
             >
+              <option key="default" value="Select from the below options">
+                Select from the below options
+              </option>
               {groupsOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -105,6 +111,12 @@ const SelectTeams = () => {
         >
           Next
         </button>
+
+        {noOfSelectedTeams >= tournamentData.maxTeams && (
+          <button className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 ml-36">
+            See Group Details
+          </button>
+        )}
       </div>
     </div>
   );
