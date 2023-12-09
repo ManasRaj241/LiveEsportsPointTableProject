@@ -32,8 +32,8 @@ public class GroupsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Group> getGroupById(@PathVariable int id) {
-        Group group = groupService.getGroupById(id);
+    public ResponseEntity<List<Group>> getGroupsByTournamentId(@PathVariable int id) {
+        List<Group> group = groupService.getGroupById(id);
         if (group != null) {
             return new ResponseEntity<>(group, HttpStatus.OK);
         } else {
@@ -41,7 +41,7 @@ public class GroupsController {
         }
     }
     
-    @GetMapping("/{groupName}")
+    @GetMapping("/allGroups/{groupName}")
     public ResponseEntity<List<Group>> getTeamsByGroupName(@PathVariable String groupName) {
         List<Group> allTeamsByGroupName = groupService.getAllTeamsByGroupName(groupName);
         if (allTeamsByGroupName != null) {

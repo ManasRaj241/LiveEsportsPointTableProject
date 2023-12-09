@@ -3,7 +3,6 @@ package com.pointTableProject.allapis.allrestapi.mainTables;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,13 +30,12 @@ public class GroupService {
 		return allTeamsByGroupName;
 	}
 
-	public Group getGroupById(int id) {
+	public List<Group> getGroupById(int id) {
 		allGroupsData = getAllGroups();
-		Predicate<? super Group> predicate = group -> group.getId() == id;
-		Optional<Group> optionalGroup = allGroupsData.stream().filter(predicate).findFirst();
-		if (optionalGroup.isEmpty())
+		List<Group> allGroupsOfTournament = groupRepository.findAllByTournamentId(id);
+		if (allGroupsOfTournament.isEmpty())
 			return null;
-		return optionalGroup.get();
+		return allGroupsOfTournament;
 	}
 
 	public Group createGroup(Group group) {
