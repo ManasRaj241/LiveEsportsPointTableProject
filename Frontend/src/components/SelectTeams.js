@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const SelectTeams = () => {
   const params = useParams();
@@ -115,9 +115,13 @@ const SelectTeams = () => {
         </button>
 
         {noOfSelectedTeams >= tournamentData.maxTeams && (
-          <button className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 ml-36">
-            See Group Details
-          </button>
+          <Link
+            to={`/GroupConfirmation/${tournamentId}/${tournamentData.maxGroups}`}
+          >
+            <button className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 ml-36">
+              See Group Details
+            </button>
+          </Link>
         )}
       </div>
     </div>

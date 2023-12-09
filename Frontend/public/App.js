@@ -5,6 +5,7 @@ import Home from "../src/components/Home";
 import "tailwindcss/tailwind.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SelectTeams from "../src/components/SelectTeams";
+import GroupConfirmation from "../src/components/GroupConfirmation";
 
 const AppLayout = () => {
   return (
@@ -26,6 +27,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/SelectTeams/:tournamentId",
     element: <SelectTeams />,
+  },
+  {
+    path: "/GroupConfirmation/:tournamentId/:maxGroups",
+    element: <GroupConfirmation />,
   },
 ]);
 
