@@ -63,5 +63,11 @@ public class TournamentService {
 		return tournament;
 	}
 
+	public List<Tournament> getAllTournamentByStatus(String status) {
+		List<Tournament> allTournament = tournamentRepository.findAllByStatus(status);
+		if(allTournament.isEmpty()) return null;
+		return allTournament;
+	}
+
 	
 }

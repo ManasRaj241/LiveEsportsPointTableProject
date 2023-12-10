@@ -14,4 +14,6 @@ public interface TournamentRepository extends JpaRepository<Tournament, Integer>
 
 	void deleteByName(String tournamentName);
 
+	List<Tournament> findAllByStatus(String status);
+
 }

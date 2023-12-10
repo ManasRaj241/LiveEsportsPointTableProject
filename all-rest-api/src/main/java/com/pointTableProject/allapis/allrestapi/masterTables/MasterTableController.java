@@ -100,6 +100,12 @@ public class MasterTableController {
 		Tournament tournament = tournamentService.getTournamentByTournamentId(tournamentId);
         return new ResponseEntity<>(tournament, HttpStatus.OK);
     }
+	
+	@RequestMapping(value="/tournament/status/{status}",method=RequestMethod.GET)
+    public ResponseEntity<List<Tournament>> getTournamentByStatus(@PathVariable String status) {
+		List<Tournament> allTournament = tournamentService.getAllTournamentByStatus(status);
+        return new ResponseEntity<>(allTournament, HttpStatus.OK);
+    }
 
 	@RequestMapping(value="/tournament/{tournamentName}",method=RequestMethod.PUT)
     public ResponseEntity<Tournament> updateTournamentByTournamentName(@PathVariable String tournamentName, @RequestBody Tournament updatedTournament) {
